@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NETIZENS | Student-Led Cyber Community</title>
   <!-- For modern browsers -->
-  <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/35KcgMht/cropped-circle-image.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/home/nucle4r/Downloads/cropped_circle_image.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <div class="gradient-bg"></div>
   <canvas id="particles"></canvas>
@@ -55,7 +56,32 @@
       <div class="hexagon"></div>
     </div>
   </section>
-
+  <section id="about-netizens" class="about-netizens">
+    <div class="section-header">
+      <h2>What is <span class="highlight">Netizens Team?</span></h2>
+    </div>
+    <div class="about-content" style="text-align: center;">
+      <p>Netizens is a student-led cybersecurity community focused on hands-on learning.</p>
+      <div style="display: flex; justify-content: center; margin: 1.5rem 0;">
+        <button id="expandAbout" class="btn-secondary">
+          Read More <i class="fas fa-chevron-down"></i>
+        </button>
+      </div>
+      <div id="hiddenContent" class="hidden-content">
+        <div class="pdf-container">
+          <iframe src="your-presentation.pdf" width="100%" height="500px"></iframe>
+        </div>
+        <div class="key-points">
+          <p>Key highlights:</p>
+          <ul class="cyber-list">
+            <li><i class="fas fa-shield-alt"></i> Founded in 2020</li>
+            <li><i class="fas fa-users"></i> 50+ active members</li>
+            <li><i class="fas fa-trophy"></i> test</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
   <section id="structure" class="structure">
     <div class="section-header">
       <h2>Community <span class="highlight">Structure</span></h2>
@@ -154,28 +180,34 @@
     <div class="team-grid" id="teamGrid"></div>
   </section>
 
-  <section id="projects" class="projects">
-    <div class="section-header">
-      <h2>Our <span class="highlight">Projects</span></h2>
-      <p>Open-source security tools and research</p>
+<section id="projects" class="projects">
+  <div class="section-header">
+    <h2>Our <span class="highlight">Projects</span></h2>
+    <p>Open-source security tools and research</p>
+  </div>
+
+  <div class="projects-tabs">
+    <button class="tab-btn active" data-tab="all">All</button>
+    <button class="tab-btn" data-tab="tools">Tools</button>
+    <button class="tab-btn" data-tab="research">Research</button>
+    <button class="tab-btn" data-tab="ctf">CTF</button>
+  </div>
+
+  <div class="projects-grid" id="projectsGrid"></div>
+
+  <div class="ctf-timer">
+    <h4>Next CTF Starts In:</h4>
+
+    <div class="timer-display" id="countdownBox">
+      <span id="days">00</span>d 
+      <span id="hours">00</span>h 
+      <span id="minutes">00</span>m 
+      <span id="seconds">00</span>s
     </div>
-    <div class="projects-tabs">
-      <button class="tab-btn active" data-tab="all">All</button>
-      <button class="tab-btn" data-tab="tools">Tools</button>
-      <button class="tab-btn" data-tab="research">Research</button>
-      <button class="tab-btn" data-tab="ctf">CTF</button>
-    </div>
-    <div class="projects-grid" id="projectsGrid"></div>
-    <div class="ctf-timer">
-      <h4>Next CTF Starts In:</h4>
-      <div class="timer-display">
-        <span id="days">00</span>d 
-        <span id="hours">00</span>h 
-        <span id="minutes">00</span>m 
-        <span id="seconds">00</span>s
-      </div>
-    </div>
-  </section>
+
+    <div id="timer" style="margin-top: 10px; font-weight: bold; color: limegreen;"></div>
+  </div>
+</section>
 
   <section class="skills">
     <div class="section-header">
@@ -225,17 +257,17 @@
         <div class="info-card">
           <i class="fas fa-envelope"></i>
           <h4>Email Us</h4>
-          <p>contact@netizens.sec</p>
+          <p>teamnetizens@gmail.com</p>
         </div>
         <div class="info-card">
           <i class="fas fa-map-marker-alt"></i>
           <h4>Visit Us</h4>
-          <p>Cyber Security Hub, Digital City</p>
+          <p>Egypt</p>
         </div>
         <div class="info-card">
           <i class="fas fa-phone"></i>
           <h4>Call Us</h4>
-          <p>+1 555-SEC-URE</p>
+          <p>+201554804513</p>
         </div>
       </div>
     </div>
