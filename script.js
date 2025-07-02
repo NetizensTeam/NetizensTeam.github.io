@@ -10,22 +10,13 @@ const teamMembers = [
   {
     name: "0xMahmoud",
     role: "Head of Cyber Community",
-    bio: "Cyber Secuiery student",
+    bio: "Cyber Security student",
     social: [
       { icon: "fab fa-github", link: "#", title: "GitHub" },
       { icon: "fab fa-linkedin", link: "#", title: "LinkedIn" },
       { icon: "fab fa-x", link: "#", title: "X (Twitter)" },
       { icon: "fab fa-facebook", link: "#", title: "Facebook" },
-      { icon: "fas fa-flag", link: "#", title: "TryHackMe" },
-      { icon: "fas fa-user-secret", title: "Hacker Profile", color: "#6c0ce7" },
-      { icon: "fas fa-shield-alt", title: "Security Shield", color: "#00f0ff" },
-      { icon: "fas fa-lock", title: "Encryption", color: "#1dd1a1" },
-      { icon: "fas fa-key", title: "Access Key", color: "#ff9f43" },
-      { icon: "fas fa-fingerprint", title: "Biometrics", color: "#f368e0" },
-      { icon: "fas fa-bug", title: "Bug Bounty", color: "#ff6b6b" },
-      { icon: "fas fa-code", title: "Secure Code", color: "#48dbfb" },
-      { icon: "fas fa-network-wired", title: "Network Security", color: "#6c0ce7" }
-
+      { icon: "fas fa-flag", link: "#", title: "TryHackMe" }
     ],
     image: null
   },
@@ -35,7 +26,7 @@ const teamMembers = [
     bio: "Blalalalalala",
     social: [
       { icon: "fab fa-github", link: "#" },
-      {icon: "fab fa-linkedin", link: "#", title: "LinkedIn" }
+      { icon: "fab fa-linkedin", link: "#", title: "LinkedIn" }
     ],
     image: null,
     bgColor: "#6c0ce7"
@@ -51,7 +42,8 @@ const teamMembers = [
     bgColor: "#00f0ff"
   }
 ];
-// social-config.js
+
+// Social Config
 const socialConfig = {
   platforms: {
     github: {
@@ -141,6 +133,7 @@ const consoleCommands = {
   contact: "Email us at: contact@netizens.sec"
 };
 
+// Console functionality
 consoleBtn.addEventListener('click', () => {
   consoleTerminal.classList.toggle('active');
 });
@@ -168,31 +161,8 @@ consoleInput.addEventListener('keypress', (e) => {
     consoleOutput.scrollTop = consoleOutput.scrollHeight;
   }
 });
-// social-icons.js
-function generateSocialIcons(containerClass, platforms = []) {
-  const container = document.querySelector(containerClass);
-  if (!container) return;
 
-  let html = '';
-  platforms.forEach(platform => {
-    const config = socialConfig.platforms[platform];
-    const username = socialConfig.usernames[platform];
-    
-    if (config && username) {
-      html += `
-        <a href="${config.baseUrl}${username}" 
-           target="_blank" 
-           rel="noopener noreferrer"
-           title="${config.title}"
-           style="--social-color: ${config.color}">
-          <i class="${config.icon}"></i>
-        </a>
-      `;
-    }
-  });
-
-  container.innerHTML = html;
-}
+// Attack simulation
 setInterval(() => {
   const attacks = [
     "> [ALERT] Brute force attempt detected: 192.168.1.105 → SSH port 22",
@@ -203,26 +173,7 @@ setInterval(() => {
   consoleOutput.scrollTop = consoleOutput.scrollHeight;
 }, 5000);
 
-// Add this function to check for backdrop filter support
-function checkGlassSupport() {
-  const nav = document.querySelector('.glass-nav');
-  
-  // Test for backdrop-filter support
-  const testEl = document.createElement('div');
-  testEl.style.backdropFilter = 'blur(1px)';
-  document.body.appendChild(testEl);
-  const style = window.getComputedStyle(testEl);
-  const hasSupport = style.backdropFilter.includes('blur') || 
-                    style.webkitBackdropFilter.includes('blur');
-  document.body.removeChild(testEl);
-  
-  if (!hasSupport) {
-    // Fallback for unsupported browsers
-    nav.style.background = 'rgba(15, 15, 35, 0.95)';
-    nav.style.backdropFilter = 'none';
-    nav.style.webkitBackdropFilter = 'none';
-  }
-}
+// Typewriter effect
 function hackerTyper() {
   const codeSnippets = [
     "root@kali:~# nmap -sV -T4 192.168.1.0/24",
@@ -260,6 +211,7 @@ function hackerTyper() {
   type();
 }
 
+// Projects loader
 function loadProjects() {
   const projectsGrid = document.getElementById('projectsGrid');
   
@@ -314,6 +266,7 @@ function loadProjects() {
   });
 }
 
+// Skills loader
 function loadSkills() {
   const skillBars = document.getElementById('skillBars');
   
@@ -342,6 +295,7 @@ function loadSkills() {
   }, 500);
 }
 
+// Skills chart
 function initSkillsChart() {
   const ctx = document.getElementById('skillsChart').getContext('2d');
   const chart = new Chart(ctx, {
@@ -394,6 +348,7 @@ function initSkillsChart() {
   });
 }
 
+// CTF Timer
 function updateCTFTimer() {
   const now = new Date();
   const nextCTF = new Date();
@@ -412,7 +367,6 @@ function updateCTFTimer() {
   document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
 }
 
-
 // Particle Animation
 function initParticles() {
   const canvas = document.getElementById('particles');
@@ -424,7 +378,6 @@ function initParticles() {
   const particles = [];
   const particleCount = Math.floor(window.innerWidth / 10);
   
-  // Create particles
   for (let i = 0; i < particleCount; i++) {
     particles.push({
       x: Math.random() * canvas.width,
@@ -438,22 +391,18 @@ function initParticles() {
   function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
-    // Update and draw particles
     particles.forEach(p => {
       p.x += p.speedX;
       p.y += p.speedY;
       
-      // Bounce off edges
       if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
       if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
       
-      // Draw particle
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
       ctx.fillStyle = 'rgba(108, 12, 231, 0.5)';
       ctx.fill();
       
-      // Draw connections
       particles.forEach(p2 => {
         const dx = p.x - p2.x;
         const dy = p.y - p2.y;
@@ -475,13 +424,13 @@ function initParticles() {
   
   animate();
   
-  // Handle resize
   window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
   });
 }
-// Hexagon Interactivity - Exact Match to Your Request
+
+// Hexagon Interactivity
 function initHexagonInteractivity() {
   const hexagons = document.querySelectorAll('.hexagon');
   
@@ -498,36 +447,47 @@ function initHexagonInteractivity() {
   });
 }
 
-// Initialize Team
+// Team loader
 function initTeam() {
   const teamGrid = document.getElementById('teamGrid');
-  
+
   teamMembers.forEach(member => {
     const memberCard = document.createElement('div');
     memberCard.className = 'member-card';
-    
-    memberCard.innerHTML = `
-      ${member.image ? 
-        `<img src="${member.image}" alt="${member.name}" class="member-image">` : 
-        `<div class="member-image" style="background-color: ${member.bgColor || 'var(--primary)'}; color: white; display: flex; align-items: center; justify-content: center;">
-          <i class="fas fa-user" style="font-size: 3rem;"></i>
-        </div>`
+
+    const profileImage = member.image
+      ? `<img src="${member.image}" alt="${member.name}" class="member-image">`
+      : `<div class="member-image" style="background-color: ${member.bgColor || 'var(--primary)'}; color: white; display: flex; align-items: center; justify-content: center;">
+           <i class="fas fa-user" style="font-size: 3rem;"></i>
+         </div>`;
+
+    const socialIcons = member.social.map(s => {
+      if (s.link) {
+        return `<a href="${s.link}" target="_blank" title="${s.title || ''}" style="${s.color ? `color: ${s.color}` : ''}">
+                  <i class="${s.icon}"></i>
+                </a>`;
+      } else {
+        return `<span title="${s.title || ''}" style="${s.color ? `color: ${s.color}` : ''}">
+                  <i class="${s.icon}"></i>
+                </span>`;
       }
+    }).join('');
+
+    memberCard.innerHTML = `
+      ${profileImage}
       <h3>${member.name}</h3>
       <p class="member-role">${member.role}</p>
       <p class="member-bio">${member.bio}</p>
       <div class="member-social">
-        ${member.social.map(s => `
-          <a href="${s.link}"><i class="${s.icon}"></i></a>
-        `).join('')}
+        ${socialIcons}
       </div>
     `;
-    
+
     teamGrid.appendChild(memberCard);
   });
 }
 
-// Updated Form Validation (without password)
+// Form Validation
 function setupFormValidation() {
   const form = document.getElementById('contactForm');
 
@@ -548,7 +508,7 @@ function setupFormValidation() {
   });
 }
 
-
+// Scroll Animations
 function setupScrollAnimations() {
   const fadeElements = document.querySelectorAll('.structure-card, .circle-card, .member-card, .project-card, .skill-item');
   
@@ -567,6 +527,50 @@ function setupScrollAnimations() {
   });
 }
 
+// Social Icons Generator
+function generateSocialIcons(containerClass, platforms = []) {
+  const container = document.querySelector(containerClass);
+  if (!container) return;
+
+  let html = '';
+  platforms.forEach(platform => {
+    const config = socialConfig.platforms[platform];
+    const username = socialConfig.usernames[platform];
+    
+    if (config && username) {
+      html += `
+        <a href="${config.baseUrl}${username}" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           title="${config.title}"
+           style="--social-color: ${config.color}">
+          <i class="${config.icon}"></i>
+        </a>
+      `;
+    }
+  });
+
+  container.innerHTML = html;
+}
+
+// Glass effect support check
+function checkGlassSupport() {
+  const nav = document.querySelector('.glass-nav');
+  
+  const testEl = document.createElement('div');
+  testEl.style.backdropFilter = 'blur(1px)';
+  document.body.appendChild(testEl);
+  const style = window.getComputedStyle(testEl);
+  const hasSupport = style.backdropFilter.includes('blur') || 
+                    style.webkitBackdropFilter.includes('blur');
+  document.body.removeChild(testEl);
+  
+  if (!hasSupport) {
+    nav.style.background = 'rgba(15, 15, 35, 0.95)';
+    nav.style.backdropFilter = 'none';
+    nav.style.webkitBackdropFilter = 'none';
+  }
+}
 
 // Initialize everything
 document.addEventListener('DOMContentLoaded', function() {
@@ -575,8 +579,6 @@ document.addEventListener('DOMContentLoaded', function() {
   setupFormValidation();
   checkGlassSupport();
   initHexagonInteractivity();
-
-  // Your other initialization functions
   hackerTyper();
   loadProjects();
   loadSkills();
@@ -584,14 +586,11 @@ document.addEventListener('DOMContentLoaded', function() {
   updateCTFTimer();
   setupScrollAnimations();
   setInterval(updateCTFTimer, 1000);
-    // Footer social links
-  generateSocialIcons('.footer .social-links', ['instagram', 'facebook','twitter',"linkedin"]);
   
-  // Team member social links (example)
-  generateSocialIcons('.member-social', ['github', 'linkedin', 'twitter', 'tryhackme']);
-  
-  // Anywhere else
-  generateSocialIcons('.other-social-container', ['instagram', 'facebook','twitter',"linkedin"]);
+  // Generate social icons
+  generateSocialIcons('.footer .social-links', ['instagram', 'facebook', 'twitter', 'linkedin']);
+  generateSocialIcons('.other-social-container', ['instagram', 'facebook', 'twitter', 'linkedin']);
+
   // Mobile menu toggle
   document.getElementById('mobileMenuToggle').addEventListener('click', function() {
     document.querySelector('.nav-links').classList.toggle('active');
@@ -609,9 +608,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Navbar scroll effect
-
-  
-  
   window.addEventListener('scroll', function() {
     const nav = document.querySelector('.glass-nav');
     if (window.scrollY > 50) {
@@ -621,4 +617,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
-
