@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NETIZENS | Student-Led Cyber Community</title>
+  <!-- For modern browsers -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/home/nucle4r/Downloads/cropped_circle_image.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="gradient-bg"></div>
+  <canvas id="particles"></canvas>
+
+  <nav class="glass-nav">
+    <div class="nav-container">
+      <div class="logo">NETIZENS<span class="security-tag">SEC</span></div>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#structure">Structure</a></li>
+        <li><a href="#circles">Circles</a></li>
+        <li><a href="#team">Leaders</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="console-btn" id="consoleBtn">
+        <i class="fas fa-terminal"></i>
+      </div>
+    </div>
+  </nav>
+
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <!-- Your existing hero content -->
+      <div class="badge">CYBERSECURITY COMMUNITY</div>
+      <h1>Cyber Skills <span class="highlight">Accelerated</span></h1>
+      <div class="typewriter-container">
+        <div id="typewriter" class="typewriter"></div>
+        <div class="cursor">|</div>
+      </div>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn-primary">Get in Touch</a>
+        <a href="#circles" class="btn-secondary">Our Circles</a>
+      </div>
+    </div>
+    
+    <!-- Add this hexagon container -->
+    <div class="hero-hexagons">
+      <div class="hexagon"></div>
+      <div class="hexagon"></div>
+      <div class="hexagon"></div>
+    </div>
+  </section>
+
+  <section id="structure" class="structure">
+    <div class="section-header">
+      <h2>Community <span class="highlight">Structure</span></h2>
+      <p>How we organize learning and growth at Netizens</p>
+    </div>
+    <div class="structure-grid">
+      <div class="structure-card">
+        <div class="structure-icon"><i class="fas fa-bullseye"></i></div>
+        <h3>Vision</h3>
+        <p>Empower students with real-world cybersecurity skills through structured learning and hands-on practice</p>
+      </div>
+      <div class="structure-card">
+        <div class="structure-icon"><i class="fas fa-sitemap"></i></div>
+        <h3>5 Specialized Circles</h3>
+        <p>Focused learning paths in key cybersecurity domains</p>
+      </div>
+      <div class="structure-card">
+        <div class="structure-icon"><i class="fas fa-users"></i></div>
+        <h3>Role-Based</h3>
+        <p>Clear responsibilities for heads, mentors, and members</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="circles" class="circles">
+    <div class="section-header">
+      <h2>Learning <span class="highlight">Circles</span></h2>
+      <p>Specialized groups for focused skill development</p>
+    </div>
+    <div class="circles-container">
+      <div class="circle-card main-circle">
+        <div class="circle-icon" style="background-color: #ff9f43;">
+          <i class="fas fa-door-open"></i>
+        </div>
+        <h3>Entry Level</h3>
+        <ul class="circle-topics">
+          <li>Cyber Fundamentals</li>
+          <li>Linux Basics</li>
+          <li>CTF Introduction</li>
+        </ul>
+      </div>
+      <div class="circles-grid">
+        <div class="circle-card">
+          <div class="circle-icon" style="background-color: #ff6b6b;">
+            <i class="fas fa-bug"></i>
+          </div>
+          <h3>Penetration Testing</h3>
+          <ul class="circle-topics">
+            <li>Web App Security</li>
+            <li>Network Pentesting</li>
+            <li>Privilege Escalation</li>
+          </ul>
+        </div>
+        <div class="circle-card">
+          <div class="circle-icon" style="background-color: #48dbfb;">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>SOC & DFIR</h3>
+          <ul class="circle-topics">
+            <li>Incident Response</li>
+            <li>SIEM Tools</li>
+            <li>Threat Hunting</li>
+          </ul>
+        </div>
+        <div class="circle-card">
+          <div class="circle-icon" style="background-color: #1dd1a1;">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>Reverse Engineering</h3>
+          <ul class="circle-topics">
+            <li>Malware Analysis</li>
+            <li>Binary Exploitation</li>
+            <li>Debugging</li>
+          </ul>
+        </div>
+        <div class="circle-card">
+          <div class="circle-icon" style="background-color: #f368e0;">
+            <i class="fas fa-network-wired"></i>
+          </div>
+          <h3>Network Security</h3>
+          <ul class="circle-topics">
+            <li>Firewalls/IDS/IPS</li>
+            <li>Packet Analysis</li>
+            <li>VPN Security</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="team" class="team">
+    <div class="section-header">
+      <h2>Our <span class="highlight">Leaders</span></h2>
+      <p>The team guiding the community</p>
+    </div>
+    <div class="team-grid" id="teamGrid"></div>
+  </section>
+
+  <section id="projects" class="projects">
+    <div class="section-header">
+      <h2>Our <span class="highlight">Projects</span></h2>
+      <p>Open-source security tools and research</p>
+    </div>
+    <div class="projects-tabs">
+      <button class="tab-btn active" data-tab="all">All</button>
+      <button class="tab-btn" data-tab="tools">Tools</button>
+      <button class="tab-btn" data-tab="research">Research</button>
+      <button class="tab-btn" data-tab="ctf">CTF</button>
+    </div>
+    <div class="projects-grid" id="projectsGrid"></div>
+    <div class="ctf-timer">
+      <h4>Next CTF Starts In:</h4>
+      <div class="timer-display">
+        <span id="days">00</span>d 
+        <span id="hours">00</span>h 
+        <span id="minutes">00</span>m 
+        <span id="seconds">00</span>s
+      </div>
+    </div>
+  </section>
+
+  <section class="skills">
+    <div class="section-header">
+      <h2>Our <span class="highlight">Expertise</span></h2>
+      <p>Areas of specialized knowledge and skills</p>
+    </div>
+    <div class="skills-container">
+      <div class="skills-chart">
+        <canvas id="skillsChart"></canvas>
+      </div>
+      <div class="skills-info">
+        <h3>Skill <span class="highlight">Breakdown</span></h3>
+        <div class="skill-bars" id="skillBars"></div>
+      </div>
+    </div>
+  </section>
+
+    <section id="contact" class="contact">
+    <div class="section-header">
+      <h2>Get In <span class="highlight">Touch</span></h2>
+      <p>Ready to secure your systems? Contact us today</p>
+    </div>
+    <div class="contact-container">
+      <form class="contact-form" id="contactForm">
+        <div class="form-group">
+          <input type="text" id="name" required>
+          <label for="name">Your Name</label>
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" required>
+          <label for="email">Your Email</label>
+        </div>
+        <div class="form-group">
+          <input type="text" id="subject" required>
+          <label for="subject">Subject</label>
+        </div>
+        <div class="form-group">
+          <textarea id="message" required></textarea>
+          <label for="message">Your Message</label>
+        </div>
+        <button type="submit" class="btn-primary">
+          <span>Send Message</span>
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </form>
+      <div class="contact-info">
+        <div class="info-card">
+          <i class="fas fa-envelope"></i>
+          <h4>Email Us</h4>
+          <p>contact@netizens.sec</p>
+        </div>
+        <div class="info-card">
+          <i class="fas fa-map-marker-alt"></i>
+          <h4>Visit Us</h4>
+          <p>Cyber Security Hub, Digital City</p>
+        </div>
+        <div class="info-card">
+          <i class="fas fa-phone"></i>
+          <h4>Call Us</h4>
+          <p>+1 555-SEC-URE</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="console-terminal" id="consoleTerminal">
+    <div class="console-header">
+      <span>netizens-terminal</span>
+      <button class="close-console" id="closeConsole">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="console-body" id="consoleOutput">
+      <p>> Initializing Netizens Security Console...</p>
+    </div>
+    <div class="console-input">
+      <span>> </span>
+      <input type="text" id="consoleInput" autocomplete="off">
+    </div>
+  </div>
+
+  <div class="vpn-status">
+    <div class="status-light"></div>
+    <span>VPN: Connected</span>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-about">
+        <div class="logo">NETIZENS<span class="security-tag">SEC</span></div>
+        <p>Elite cybersecurity solutions and research since 2020</p>
+        <div class="social-links"></div>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#structure">Structure</a></li>
+          <li><a href="#circles">Circles</a></li>
+          <li><a href="#team">Leaders</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-newsletter">
+        <h4>Security Newsletter</h4>
+        <p>Subscribe to our security advisories</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Your Email">
+          <button class="btn-primary">Subscribe</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Netizens Team. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
