@@ -10,29 +10,31 @@ const teamMembers = [
   {
     name: "0xMahmoud",
     role: "Head of Cyber Community",
-    bio: "Cyber Security student",
+    bio: "balalalalala",
     social: [
-      { icon: "fab fa-github", link: "#", title: "GitHub" },
-      { icon: "fab fa-linkedin", link: "#", title: "LinkedIn" },
-      { icon: "fab fa-x", link: "#", title: "X (Twitter)" },
-      { icon: "fab fa-facebook", link: "#", title: "Facebook" },
-      { icon: "fas fa-flag", link: "#", title: "TryHackMe" }
+      { icon: "fab fa-linkedin", link: "linkedin.com/in/0xd-mahmoud/", title: "LinkedIn" },
+      { icon: "fab fa-facebook", link: "https://www.facebook.com/eng.psychoai/", title: "Facebook" },
+      { icon: "fab fa-whatsapp", link: "https://wa.me/+201027256960", title: "Whatsapp" },
+      { icon: "fas fa-flag", link: "https://trychackme.com/p/0Xd", title: "TryHackMe" }
     ],
-    image: null
+    image: "https://i.ibb.co/TMKDNSWX/IMG-20250214-180353.jpg"
   },
   {
-    name: "Shams Elden",
+    name: "Shams El-deen",
     role: "Founder of Netizens",
     bio: "Blalalalalala",
     social: [
-      { icon: "fab fa-github", link: "#" },
-      { icon: "fab fa-linkedin", link: "#", title: "LinkedIn" }
+      { icon: "fab fa-linkedin", link: "https://www.linkedin.com/in/shvms-eldeen", title: "LinkedIn" },
+      { icon: "fab fa-facebook", link: "https://m.facebook.com/itzshvms/", title: "Facebook" },
+      { icon: "fab fa-instagram", link: "https://www.instagram.com/shvms_eldeen/", title: "Instagram" },
+      { icon: "fab fa-x", link: "https://x.com/shvms_eldeen", title: "X (Twitter)" },
+      { icon: "fab fa-whatsapp", link: "http://wa.me/+201121132463", title: "Whatsapp" }
     ],
     image: null,
     bgColor: "#6c0ce7"
   },
   {
-    name: "Alex",
+    name: "tessst",
     role: "CTF Captain",
     bio: "Reverse engineering and exploit development expert",
     social: [
@@ -81,15 +83,29 @@ const socialConfig = {
       color: "#1877F2",
       title: "Facebook",
       baseUrl: "https://facebook.com/"
+    },
+    discord: {
+      icon: "fab fa-discord",
+      color: "#1877F2",
+      title: "discord",
+      baseUrl: "https://discord.gg/"
+    },
+    whatsapp: {
+      icon: "fab fa-whatsapp",
+      color: "#1877F2",
+      title: "whatsapp",
+      baseUrl: "https://wa.me/"
     }
   },
   usernames: {
-    github: "netizens-sec",
-    twitter: "netizens_sec",
-    instagram: "netizens.security",
-    linkedin: "company/netizens-security",
+    github: "netizensteam",
+    twitter: "netizensteam",
+    instagram: "netizensteam",
+    linkedin: "company/netizensteam",
     tryhackme: "netizens",
-    facebook: "netizens.security"
+    facebook: "teamnetiznes",
+    discord: "qtEMjdWrjW",
+    whatsapp: "+201554804513"
   }
 };
 
@@ -116,11 +132,9 @@ const projects = [
 
 const skills = [
   { name: "Penetration Testing", percent: 95 },
-  { name: "Web Security", percent: 90 },
+  { name: "SOC & DFIR", percent: 90 },
   { name: "Network Security", percent: 85 },
-  { name: "Malware Analysis", percent: 80 },
-  { name: "Cloud Security", percent: 75 },
-  { name: "Secure Coding", percent: 90 }
+  { name: "Malware Analysis", percent: 80 }
 ];
 
 const consoleCommands = {
@@ -130,7 +144,7 @@ const consoleCommands = {
   projects: "We maintain open source security tools and research projects",
   clear: function() { consoleOutput.innerHTML = ''; },
   status: "System status: All services operational",
-  contact: "Email us at: contact@netizens.sec"
+  contact: "Email us at: teamnetizens@gmail.com"
 };
 
 // Console functionality
@@ -347,25 +361,36 @@ function initSkillsChart() {
     }
   });
 }
+  document.addEventListener("DOMContentLoaded", function () {
+    const ctfEndDate = new Date("2024-01-01T12:00:00"); 
 
-// CTF Timer
-function updateCTFTimer() {
-  const now = new Date();
-  const nextCTF = new Date();
-  nextCTF.setDate(now.getDate() + 7);
-  
-  const diff = nextCTF - now;
-  
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-  
-  document.getElementById('days').textContent = days.toString().padStart(2, '0');
-  document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-  document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-  document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-}
+    function updateCTFTimer() {
+      const now = new Date();
+      const diff = ctfEndDate - now;
+
+      if (diff <= 0) {
+        clearInterval(timerInterval);
+        document.getElementById("countdownBox").style.display = "none";
+        document.getElementById("timer").innerHTML = "🚩 CTF is LIVE! Good luck!";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById("days").textContent = days.toString().padStart(2, "0");
+      document.getElementById("hours").textContent = hours.toString().padStart(2, "0");
+      document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0");
+      document.getElementById("seconds").textContent = seconds.toString().padStart(2, "0");
+    }
+
+    const timerInterval = setInterval(updateCTFTimer, 1000);
+    updateCTFTimer();
+  });
+
+
 
 // Particle Animation
 function initParticles() {
@@ -583,13 +608,14 @@ document.addEventListener('DOMContentLoaded', function() {
   loadProjects();
   loadSkills();
   initSkillsChart();
-  updateCTFTimer();
+ 
+
   setupScrollAnimations();
   setInterval(updateCTFTimer, 1000);
   
   // Generate social icons
-  generateSocialIcons('.footer .social-links', ['instagram', 'facebook', 'twitter', 'linkedin']);
-  generateSocialIcons('.other-social-container', ['instagram', 'facebook', 'twitter', 'linkedin']);
+  generateSocialIcons('.footer .social-links', ['instagram', 'facebook', 'twitter', 'linkedin', 'discord']);
+  generateSocialIcons('.other-social-container', ['instagram', 'facebook', 'twitter', 'linkedin', 'discord']);
 
   // Mobile menu toggle
   document.getElementById('mobileMenuToggle').addEventListener('click', function() {
@@ -616,4 +642,20 @@ document.addEventListener('DOMContentLoaded', function() {
       nav.classList.remove('scrolled');
     }
   });
+  
+document.getElementById('expandAbout').addEventListener('click', function() {
+  const content = document.getElementById('hiddenContent');
+  const isHidden = content.style.display === 'none';
+  
+  content.style.display = isHidden ? 'block' : 'none';
+  this.innerHTML = isHidden 
+    ? 'Collapse <i class="fas fa-chevron-up"></i>' 
+    : 'Read More <i class="fas fa-chevron-down"></i>';
+  
+  if (isHidden) {
+    setTimeout(() => {
+      content.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    },300);
+  }
+});
 });
