@@ -1167,3 +1167,74 @@ section {
     max-width: 100%;
   }
 }
+
+/* Center align all content in the section */
+.about-netizens {
+  text-align: center;
+}
+
+/* Remove default margins from paragraph */
+.about-content p {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+/* Button container - already centered via inline style */
+/* PDF container styling */
+.pdf-container {
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 1.5rem auto;
+  max-width: 800px;
+}
+
+/* Key points styling */
+.key-points {
+  background: rgba(108, 12, 231, 0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* List styling */
+.cyber-list {
+  list-style: none;
+  padding: 0;
+  display: inline-block;
+  text-align: left;
+}
+
+.cyber-list li {
+  margin: 0.8rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hidden-content {
+  display: none;
+  animation: fadeIn 0.5s ease-out;
+}
+  position: relative;
+}
+
+.close-modal {
+  color: var(--danger);
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.close-modal:hover {
+  color: var(--light);
+}
