@@ -30,7 +30,7 @@ const teamMembers = [
       { icon: "fab fa-x", link: "https://x.com/shvms_eldeen", title: "X (Twitter)" },
       { icon: "fab fa-whatsapp", link: "http://wa.me/+201121132463", title: "Whatsapp" }
     ],
-    image: "https://i.ibb.co/N69wDhM3/SAVE-20250416-181501.jpg",
+    image: "https://i.ibb.co/v4sTvg0D/Whats-App-Image-2025-07-03-at-4-03-54-PM.jpg",
     bgColor: "#6c0ce7"
   },
   {
