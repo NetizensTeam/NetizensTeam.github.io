@@ -30,7 +30,7 @@ const teamMembers = [
       { icon: "fab fa-x", link: "https://x.com/shvms_eldeen", title: "X (Twitter)" },
       { icon: "fab fa-whatsapp", link: "http://wa.me/+201121132463", title: "Whatsapp" }
     ],
-    image: null,
+    image: "https://i.ibb.co/N69wDhM3/SAVE-20250416-181501.jpg",
     bgColor: "#6c0ce7"
   },
   {
@@ -132,9 +132,11 @@ const projects = [
 
 const skills = [
   { name: "Penetration Testing", percent: 95 },
-  { name: "SOC & DFIR", percent: 90 },
+  { name: "Web Security", percent: 90 },
   { name: "Network Security", percent: 85 },
-  { name: "Malware Analysis", percent: 80 }
+  { name: "Malware Analysis", percent: 80 },
+  { name: "Cloud Security", percent: 75 },
+  { name: "Secure Coding", percent: 90 }
 ];
 
 const consoleCommands = {
@@ -144,7 +146,7 @@ const consoleCommands = {
   projects: "We maintain open source security tools and research projects",
   clear: function() { consoleOutput.innerHTML = ''; },
   status: "System status: All services operational",
-  contact: "Email us at: teamnetizens@gmail.com"
+  contact: "Email us at: contact@netizens.sec"
 };
 
 // Console functionality
@@ -309,6 +311,39 @@ function loadSkills() {
   }, 500);
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('newsletterForm');
+  const messageDiv = document.getElementById('message');
+
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          messageDiv.style.color = 'green';
+          messageDiv.textContent = 'Thank you for subscribing!';
+          form.reset();
+        } else {
+          messageDiv.style.color = 'red';
+          messageDiv.textContent = 'Oops! There was a problem. Please try again.';
+        }
+      } catch (error) {
+        messageDiv.style.color = 'red';
+        messageDiv.textContent = 'Oops! There was a problem. Please try again.';
+      }
+    });
+  }
+});
+
+
 // Skills chart
 function initSkillsChart() {
   const ctx = document.getElementById('skillsChart').getContext('2d');
@@ -361,35 +396,6 @@ function initSkillsChart() {
     }
   });
 }
-  document.addEventListener("DOMContentLoaded", function () {
-    const ctfEndDate = new Date("2024-01-01T12:00:00"); 
-
-    function updateCTFTimer() {
-      const now = new Date();
-      const diff = ctfEndDate - now;
-
-      if (diff <= 0) {
-        clearInterval(timerInterval);
-        document.getElementById("countdownBox").style.display = "none";
-        document.getElementById("timer").innerHTML = "🚩 CTF is LIVE! Good luck!";
-        return;
-      }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-      document.getElementById("days").textContent = days.toString().padStart(2, "0");
-      document.getElementById("hours").textContent = hours.toString().padStart(2, "0");
-      document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0");
-      document.getElementById("seconds").textContent = seconds.toString().padStart(2, "0");
-    }
-
-    const timerInterval = setInterval(updateCTFTimer, 1000);
-    updateCTFTimer();
-  });
-
 
 
 // Particle Animation
@@ -512,26 +518,35 @@ function initTeam() {
   });
 }
 
-// Form Validation
 function setupFormValidation() {
   const form = document.getElementById('contactForm');
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value;
-    
-    if (name && email && subject && message) {
-      alert('Thank you for your message! We will get back to you soon.');
-      form.reset();
-    } else {
-      alert('Please fill in all fields.');
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xeokdoda", {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        alert("✅ Thank you for your message! We'll get back to you soon.");
+        form.reset();
+      } else {
+        alert("❌ There was a problem submitting your form. Please try again.");
+      }
+    } catch (error) {
+      alert("⚠️ Error occurred while submitting the form.");
     }
   });
 }
+
 
 // Scroll Animations
 function setupScrollAnimations() {
@@ -596,7 +611,34 @@ function checkGlassSupport() {
     nav.style.webkitBackdropFilter = 'none';
   }
 }
+  document.addEventListener("DOMContentLoaded", function () {
+    const ctfEndDate = new Date("2024-01-01T12:00:00"); 
 
+    function updateCTFTimer() {
+      const now = new Date();
+      const diff = ctfEndDate - now;
+
+      if (diff <= 0) {
+        clearInterval(timerInterval);
+        document.getElementById("countdownBox").style.display = "none";
+        document.getElementById("timer").innerHTML = "🚩 CTF is LIVE! Good luck!";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById("days").textContent = days.toString().padStart(2, "0");
+      document.getElementById("hours").textContent = hours.toString().padStart(2, "0");
+      document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0");
+      document.getElementById("seconds").textContent = seconds.toString().padStart(2, "0");
+    }
+
+    const timerInterval = setInterval(updateCTFTimer, 1000);
+    updateCTFTimer();
+  });
 // Initialize everything
 document.addEventListener('DOMContentLoaded', function() {
   initParticles();
@@ -608,10 +650,9 @@ document.addEventListener('DOMContentLoaded', function() {
   loadProjects();
   loadSkills();
   initSkillsChart();
- 
 
   setupScrollAnimations();
-  setInterval(updateCTFTimer, 1000);
+
   
   // Generate social icons
   generateSocialIcons('.footer .social-links', ['instagram', 'facebook', 'twitter', 'linkedin', 'discord']);
@@ -642,7 +683,8 @@ document.addEventListener('DOMContentLoaded', function() {
       nav.classList.remove('scrolled');
     }
   });
-  
+});
+
 document.getElementById('expandAbout').addEventListener('click', function() {
   const content = document.getElementById('hiddenContent');
   const isHidden = content.style.display === 'none';
@@ -657,5 +699,4 @@ document.getElementById('expandAbout').addEventListener('click', function() {
       content.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     },300);
   }
-});
 });
