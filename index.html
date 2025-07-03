@@ -5,11 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NETIZENS | Student-Led Cyber Community</title>
   <!-- For modern browsers -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/home/nucle4r/Downloads/cropped_circle_image.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://i.ibb.co/35KcgMht/cropped-circle-image.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
   <div class="gradient-bg"></div>
   <canvas id="particles"></canvas>
@@ -69,12 +68,12 @@
       </div>
       <div id="hiddenContent" class="hidden-content">
         <div class="pdf-container">
-          <iframe src="your-presentation.pdf" width="100%" height="500px"></iframe>
+          <iframe src="https://drive.google.com/file/d/1ZISSwks4379_LLFptyMcfyhdii9D106b/preview" width="100%" height="500px"></iframe>
         </div>
         <div class="key-points">
           <p>Key highlights:</p>
           <ul class="cyber-list">
-            <li><i class="fas fa-shield-alt"></i> Founded in 2020</li>
+            <li><i class="fas fa-shield-alt"></i> Founded in 2021</li>
             <li><i class="fas fa-users"></i> 50+ active members</li>
             <li><i class="fas fa-trophy"></i> test</li>
           </ul>
@@ -180,22 +179,19 @@
     <div class="team-grid" id="teamGrid"></div>
   </section>
 
-<section id="projects" class="projects">
-  <div class="section-header">
-    <h2>Our <span class="highlight">Projects</span></h2>
-    <p>Open-source security tools and research</p>
-  </div>
-
-  <div class="projects-tabs">
-    <button class="tab-btn active" data-tab="all">All</button>
-    <button class="tab-btn" data-tab="tools">Tools</button>
-    <button class="tab-btn" data-tab="research">Research</button>
-    <button class="tab-btn" data-tab="ctf">CTF</button>
-  </div>
-
-  <div class="projects-grid" id="projectsGrid"></div>
-
-  <div class="ctf-timer">
+  <section id="projects" class="projects">
+    <div class="section-header">
+      <h2>Our <span class="highlight">Projects</span></h2>
+      <p>Open-source security tools and research</p>
+    </div>
+    <div class="projects-tabs">
+      <button class="tab-btn active" data-tab="all">All</button>
+      <button class="tab-btn" data-tab="tools">Tools</button>
+      <button class="tab-btn" data-tab="research">Research</button>
+      <button class="tab-btn" data-tab="ctf">CTF</button>
+    </div>
+    <div class="projects-grid" id="projectsGrid"></div>
+     <div class="ctf-timer">
     <h4>Next CTF Starts In:</h4>
 
     <div class="timer-display" id="countdownBox">
@@ -207,7 +203,7 @@
 
     <div id="timer" style="margin-top: 10px; font-weight: bold; color: limegreen;"></div>
   </div>
-</section>
+  </section>
 
   <section class="skills">
     <div class="section-header">
@@ -231,28 +227,33 @@
       <p>Ready to secure your systems? Contact us today</p>
     </div>
     <div class="contact-container">
-      <form class="contact-form" id="contactForm">
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/xeokdoda" method="POST">
         <div class="form-group">
-          <input type="text" id="name" required>
+          <input type="text" id="name" name="name" required>
           <label for="name">Your Name</label>
         </div>
         <div class="form-group">
-          <input type="email" id="email" required>
+          <input type="email" id="email" name="email" required>
           <label for="email">Your Email</label>
         </div>
         <div class="form-group">
-          <input type="text" id="subject" required>
+          <input type="text" id="subject" name="subject" required>
           <label for="subject">Subject</label>
         </div>
         <div class="form-group">
-          <textarea id="message" required></textarea>
+          <textarea id="message" name="message" required></textarea>
           <label for="message">Your Message</label>
         </div>
+        
+        <!-- Optional hidden field (anti-bot or redirect) -->
+        <input type="hidden" name="_subject" value="New submission from Netizens!">
+
         <button type="submit" class="btn-primary">
           <span>Send Message</span>
           <i class="fas fa-paper-plane"></i>
         </button>
       </form>
+
       <div class="contact-info">
         <div class="info-card">
           <i class="fas fa-envelope"></i>
@@ -298,7 +299,7 @@
     <div class="footer-container">
       <div class="footer-about">
         <div class="logo">NETIZENS<span class="security-tag">SEC</span></div>
-        <p>Elite cybersecurity solutions and research since 2020</p>
+        <p>Elite cybersecurity solutions and research since 2021</p>
         <div class="social-links"></div>
       </div>
       <div class="footer-links">
@@ -315,10 +316,11 @@
       <div class="footer-newsletter">
         <h4>Security Newsletter</h4>
         <p>Subscribe to our security advisories</p>
-        <div class="newsletter-form">
-          <input type="email" placeholder="Your Email">
-          <button class="btn-primary">Subscribe</button>
-        </div>
+        <form class="newsletter-form" action="https://formspree.io/f/xeokdoda" method="POST">
+          <input type="email" name="email" placeholder="Your Email" required>
+          <button type="submit" class="btn-primary">Subscribe</button>
+        </form>
+        <div id="message" style="margin-top: 10px; font-weight: bold;"></div>
       </div>
     </div>
     <div class="footer-bottom">
