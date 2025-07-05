@@ -612,8 +612,8 @@ function checkGlassSupport() {
   }
 }
   document.addEventListener("DOMContentLoaded", function () {
-    const ctfEndDate = new Date("2025-03-10T12:00:00"); 
-
+    const ctfEndDate = new Date("2025-10-03T12:00:00");
+    
     function updateCTFTimer() {
       const now = new Date();
       const diff = ctfEndDate - now;
